@@ -10,6 +10,8 @@ function createSlider() {
 		},
 		slide: function(event, ui) {
 			sliderHandle.text(ui.value);
+			$('table').remove();
+			createGrid(ui.value);
 		}
 	});
 }
