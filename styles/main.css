@@ -38,7 +38,15 @@ td {
 }
 
 #gridSlider {
-	margin: auto; /* Center within the container */
+	margin: auto;
+}
+
+#sliderHandle {
+  height: 20px;
+  line-height: 20px;
+  margin-top: -4px;
+  text-align: center;
+  width: 20px;
 }
 
 .pad {
@@ -59,12 +67,4 @@ td {
 
 .drawnOn {
 	background-color: black;
-}
-
-#sliderHandle {
-  width: 20px;
-  height: 20px;
-  margin-top: -4px;
-  text-align: center;
-  line-height: 20px;
 }
