@@ -1,4 +1,18 @@
-var gridSize = 16;
+var gridSize = 32;
+
+function createSlider() {
+	var sliderHandle = $('#sliderHandle');
+	$('#gridSlider').slider({
+		min: 1,
+		max: 64,
+		create: function() {
+			sliderHandle.text($(this).slider('value'));
+		},
+		slide: function(event, ui) {
+			sliderHandle.text(ui.value);
+		}
+	});
+}
 
 function createGrid(num) {
 	$('.pad').append('<table></table>');
@@ -11,9 +25,12 @@ function createGrid(num) {
 };
 
 $(document).ready(function() { 
+	createSlider();
+
 	createGrid(gridSize);
 
-	$('td').click(function() {
-		$(this).css('background-color', 'black');
+	// Listen for mouseenter on a <td>
+	$('td').mouseenter(function() {
+		$(this).addClass('drawnOn');
 	});
 });

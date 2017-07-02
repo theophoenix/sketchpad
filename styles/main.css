@@ -2,13 +2,7 @@
 /*-------->>> TEMPORARY <<<----------*/
 /*-----------------------------------*/
 
-div, td {
-	border: 1px solid white;
-}
 
-td {
-	background-color: #60ff00;
-}
 
 /*-----------------------------------*/
 /*---------->>> GLOBAL <<<-----------*/
@@ -20,11 +14,18 @@ td {
 }
 
 body {
+	background-color: #ededed;
 	font-size: 62.5%; /* 1.0em == ~10px */
 }
 
 table {
 	border-spacing: 0;
+	box-shadow: 0 0 3px 3px #c0c0c0;
+}
+
+td {
+	background-color: white;
+	border: 1px solid #ececec;
 }
 
 /*-----------------------------------*/
@@ -32,18 +33,23 @@ table {
 /*-----------------------------------*/
 
 .container {
-	height: auto;
-	min-width: 500px;
-	padding: 50px;
-	width: auto;
+	min-width: 700px; /* Something weird is going on with this */
+	padding: 20px;
+}
+
+#gridSlider {
+	margin: auto; /* Center within the container */
 }
 
 .pad {
-	margin: auto; /* Center the pad within the container */
+	margin: 20px auto;
 }
 
 .pad, table {
 	height: 500px;
+}
+
+.pad, table, #gridSlider {
 	width: 500px;
 }
 
@@ -51,3 +57,14 @@ table {
 /*---------->>> OTHER <<<------------*/
 /*-----------------------------------*/
 
+.drawnOn {
+	background-color: black;
+}
+
+#sliderHandle {
+  width: 20px;
+  height: 20px;
+  margin-top: -4px;
+  text-align: center;
+  line-height: 20px;
+}
