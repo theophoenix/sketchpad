@@ -1,8 +1,8 @@
 var gridSize = 16;
 
 function createSlider() {
-	var sliderHandle = $('#sliderHandle');
-	$('#gridSlider').slider({
+	var sliderHandle = $('#slider-handle');
+	$('#grid-slider').slider({
 		min: 1,
 		max: 64,
 		value: 16,

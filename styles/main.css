@@ -14,18 +14,19 @@
 }
 
 body {
-	background-color: #ededed;
+	background-color: white;
 	font-size: 62.5%; /* 1.0em == ~10px */
 }
 
 table {
+	border: 1px solid #c5c5c5;
 	border-spacing: 0;
-	box-shadow: 0 0 3px 3px #c0c0c0;
+	padding: 1px;
 }
 
 td {
 	background-color: white;
-	border: 1px solid #ececec;
+	/* border: 1px solid #ececec; */
 }
 
 /*-----------------------------------*/
@@ -34,14 +35,21 @@ td {
 
 .container {
 	min-width: 700px; /* Something weird is going on with this */
-	padding: 20px;
 }
 
-#gridSlider {
+.header {}
+
+	.header > h1 {
+		font: small-caps 40px helvetica;
+		line-height: 33px;
+		text-align: center;
+	}
+
+#grid-slider {
 	margin: auto;
 }
 
-#sliderHandle {
+#slider-handle {
   height: 20px;
   line-height: 20px;
   margin-top: -4px;
@@ -49,7 +57,7 @@ td {
   width: 20px;
 }
 
-.pad {
+.pad, .header {
 	margin: 20px auto;
 }
 
@@ -57,7 +65,7 @@ td {
 	height: 500px;
 }
 
-.pad, table, #gridSlider {
+.pad, table, #grid-slider {
 	width: 500px;
 }
 
