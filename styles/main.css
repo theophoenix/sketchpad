@@ -18,24 +18,24 @@ body {
 	font-size: 62.5%; /* 1.0em == ~10px */
 }
 
+button {
+	width: 64px;
+}
+
 table {
 	border: 1px solid #c5c5c5;
 	border-spacing: 0;
-	padding: 1px;
 }
 
 td {
 	background-color: white;
-	/* border: 1px solid #ececec; */
+	border-right: 1px solid #ececec;
+	border-bottom: 1px solid #ececec;
 }
 
 /*-----------------------------------*/
-/*------>>> PAGE STRUCTURE <<<-------*/
+/*---------->>> HEADER <<<-----------*/
 /*-----------------------------------*/
-
-.container {
-	min-width: 700px; /* Something weird is going on with this */
-}
 
 .header {}
 
@@ -45,8 +45,23 @@ td {
 		text-align: center;
 	}
 
-#grid-slider {
+/*-----------------------------------*/
+/*------>>> PAGE STRUCTURE <<<-------*/
+/*-----------------------------------*/
+
+.container {
+	min-width: 600px;
+}
+
+
+.tools {
 	margin: auto;
+}
+
+#grid-slider {
+	display: inline-block;
+	margin-right: 20px;
+	width: 410px;
 }
 
 #slider-handle {
@@ -65,7 +80,7 @@ td {
 	height: 500px;
 }
 
-.pad, table, #grid-slider {
+.pad, table, .tools {
 	width: 500px;
 }
 
@@ -75,4 +90,6 @@ td {
 
 .drawnOn {
 	background-color: black;
+	border-right: 1px solid black;
+	border-bottom: 1px solid black;
 }
