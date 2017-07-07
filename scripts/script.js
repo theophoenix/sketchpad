@@ -32,7 +32,13 @@ function draw() {
 	$('td').mouseenter(function() {
 		$(this).addClass('drawnOn');
 	});
-}
+};
+
+function clearGrid() {
+	$('#clear').on('click', function() {
+		$('td').removeClass('drawnOn');
+	});
+};
 
 $(document).ready(function() { 
 	createSlider();
@@ -40,4 +46,6 @@ $(document).ready(function() {
 	createGrid(gridSize);
 
 	draw();
+
+	clearGrid();
 });
