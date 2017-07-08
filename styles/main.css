@@ -1,4 +1,10 @@
 /*-----------------------------------*/
+/*------>>> COLOR PALETTE <<<--------*/
+/*-----------------------------------*/
+
+/* light blue (accent): #007fff */
+
+/*-----------------------------------*/
 /*-------->>> TEMPORARY <<<----------*/
 /*-----------------------------------*/
 
@@ -15,11 +21,9 @@
 
 body {
 	background-color: white;
+	font-family: helvetica;
 	font-size: 62.5%; /* 1.0em == ~10px */
-}
-
-button {
-	width: 64px;
+	font-variant: small-caps;
 }
 
 table {
@@ -34,34 +38,11 @@ td {
 }
 
 /*-----------------------------------*/
-/*---------->>> HEADER <<<-----------*/
-/*-----------------------------------*/
-
-.header {}
-
-	.header > h1 {
-		font: small-caps 40px helvetica;
-		line-height: 33px;
-		text-align: center;
-	}
-
-/*-----------------------------------*/
 /*------>>> PAGE STRUCTURE <<<-------*/
 /*-----------------------------------*/
 
 .container {
 	min-width: 600px;
-}
-
-
-.tools {
-	margin: auto;
-}
-
-#grid-slider {
-	display: inline-block;
-	margin-right: 20px;
-	width: 410px;
 }
 
 #slider-handle {
@@ -72,7 +53,36 @@ td {
   width: 20px;
 }
 
-.pad, .header {
+.toolbox {
+	border-radius: 3px;
+	margin-left: 10px;
+	position: absolute;
+	width: 125px;
+}
+
+.toolbox-tab {
+	height: 15px;
+	margin: 5px;
+	position: absolute;
+	z-index: 1;
+}
+
+.tools {
+	border: 1px solid black;
+	display: none;
+	height: 100px;
+	padding: 5px 5px 5px 25px;
+}
+
+.icons {
+	width: 15px;
+}
+
+.pad, .toolbox {
+	display: inline-block;
+}
+
+.main, .header {
 	margin: 20px auto;
 }
 
@@ -80,9 +90,48 @@ td {
 	height: 500px;
 }
 
-.pad, table, .tools {
+.container, #grid-slider {
+	margin: auto;
+}
+
+.pad, table, #grid-slider, .main {
 	width: 500px;
 }
+
+/*-----------------------------------*/
+/*---------->>> HEADER <<<-----------*/
+/*-----------------------------------*/
+
+.header {}
+
+	.header > h1 {
+		font-size: 40px;
+		font-weight: normal;
+		line-height: 33px;
+		text-align: center;
+	}
+
+/*-----------------------------------*/
+/*---------->>> EXTRAS <<<-----------*/
+/*-----------------------------------*/
+
+/*
+#eraser-button {
+	border: 1px solid black;
+	border-radius: 3px;
+	display: inline-block;
+	padding: 2px;
+}
+
+	#eraser-button > embed {
+		vertical-align: middle;
+		width: 15px;
+	}
+
+#clear-button {
+	width: 64px;
+}
+*/
 
 /*-----------------------------------*/
 /*---------->>> OTHER <<<------------*/

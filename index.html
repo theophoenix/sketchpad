@@ -12,14 +12,30 @@
 				<h1>Sketchpad</h1>
 			</div>
 
-			<div class="tools">
-				<div id="grid-slider">
-					<span id="slider-handle" class="ui-slider-handle"></span>
-				</div>
-				<button id="clear">Clear</button>
+			<div id="grid-slider">
+				<span id="slider-handle" class="ui-slider-handle"></span>
 			</div>
 
-			<div class="pad"></div>
+			<!--
+			<span id="eraser-button"><embed src="images/eraser.svg"/></span>
+			<button id="clear-button">Clear</button>
+			-->
+
+			<div class="main">
+				<div class="pad"></div>
+
+				<div class="toolbox">
+					<div class="toolbox-tab">
+						<img id="arrow" class="icons" src="images/arrow-right.png"/>
+					</div>
+					<div class="tools">
+						<div id="tools-label">Tools</div>
+						<div id="new-canvas"><img class="icons" src="images/new-canvas.png"/> New Canvas</div>
+						<div id="pencil"><img class="icons" src="images/pencil.png"/> Pencil</div>
+						<div id="eraser"><img class="icons" src="images/eraser.png"/> Eraser</div>
+					</div>
+				</div>
+			</div>
 		</div>
 
 		<script type="text/javascript" src="scripts/jquery-3.2.1.js"></script>

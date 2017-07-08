@@ -35,7 +35,7 @@ function draw() {
 };
 
 function clearGrid() {
-	$('#clear').on('click', function() {
+	$('#new-canvas').click(function() {
 		$('td').removeClass('drawnOn');
 	});
 };
@@ -48,4 +48,17 @@ $(document).ready(function() {
 	draw();
 
 	clearGrid();
+
+	var visible = false;
+	$('.toolbox-tab').click(function() {
+		if (visible == false) {
+			document.getElementById('arrow').setAttribute('src', 'images/arrow-down.png');
+			$('.tools').show("fold");
+			visible = true;
+		} else {
+			document.getElementById('arrow').setAttribute('src', 'images/arrow-right.png');
+			$('.tools').hide("fold");
+			visible = false;
+		};
+	});
 });
