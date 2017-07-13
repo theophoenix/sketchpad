@@ -67,15 +67,22 @@ td {
 	z-index: 1;
 }
 
-.tools {
-	border: 1px solid black;
+.tool-wrapper {
+	border: 1px solid #007fff;
 	display: none;
-	height: 100px;
 	padding: 5px 5px 5px 25px;
 }
 
 .icons {
 	width: 15px;
+}
+
+#tools-label {
+	padding: 1px;
+}
+
+.tools {
+	padding: 1px 1px 1px 15px;
 }
 
 .pad, .toolbox {
@@ -141,4 +148,12 @@ td {
 	background-color: black;
 	border-right: 1px solid black;
 	border-bottom: 1px solid black;
+}
+
+.hoveredTool {
+	background-color: rgba(0, 127, 255, 0.2);
+}
+
+.selectedTool {
+	background-color: rgba(0, 127, 255, 0.4);
 }

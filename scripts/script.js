@@ -1,4 +1,5 @@
 var gridSize = 16;
+var currentTool = "";
 
 function createSlider() {
 	var sliderHandle = $('#slider-handle');
@@ -28,6 +29,12 @@ function createGrid(num) {
 	};
 };
 
+function selectTool(tool) {
+	$(currentTool).removeClass('selectedTool');
+	currentTool = "#" + tool;
+	$(currentTool).addClass('selectedTool');
+};
+
 function draw() {
 	$('td').mouseenter(function() {
 		$(this).addClass('drawnOn');
@@ -37,14 +44,27 @@ function draw() {
 function clearGrid() {
 	$('#new-canvas').click(function() {
 		$('td').removeClass('drawnOn');
+		selectTool("pencil");
+		draw();
 	});
 };
+
+function erase() {
+	$('td').mouseenter(function() {
+		$(this).removeClass();
+	});
+};
+
+/*-----------------------------------*/
+/*------>>> DOCUMENT READY <<<-------*/
+/*-----------------------------------*/
 
 $(document).ready(function() { 
 	createSlider();
 
 	createGrid(gridSize);
 
+	selectTool("pencil");
 	draw();
 
 	clearGrid();
@@ -53,12 +73,34 @@ $(document).ready(function() {
 	$('.toolbox-tab').click(function() {
 		if (visible == false) {
 			document.getElementById('arrow').setAttribute('src', 'images/arrow-down.png');
-			$('.tools').show("fold");
+			$('.tool-wrapper').show("fold");
 			visible = true;
 		} else {
 			document.getElementById('arrow').setAttribute('src', 'images/arrow-right.png');
-			$('.tools').hide("fold");
+			$('.tool-wrapper').hide("fold");
 			visible = false;
 		};
+	});
+
+	$('.tools').hover(
+		function() {
+			$(this).addClass('hoveredTool');
+		}, 
+		function() {
+			$(this).removeClass('hoveredTool');
+		});
+
+	$('#pencil').click(function() {
+		selectTool("pencil");
+		draw();
+	});
+
+	$('#eraser').click(function() {
+		selectTool("eraser");
+		erase();
+	});
+
+	$('#rainbow-pencil').click(function() {
+		selectTool("rainbow-pencil");
 	});
 });
