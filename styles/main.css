@@ -23,6 +23,9 @@ body {
 	background-color: white;
 	font-family: helvetica;
 	font-size: 62.5%; /* 1.0em == ~10px */
+}
+
+h1 {
 	font-variant: small-caps;
 }
 
@@ -57,35 +60,39 @@ td {
 	border-radius: 3px;
 	margin-left: 10px;
 	position: absolute;
-	width: 125px;
+	width: 135px;
 }
 
 .toolbox-tab {
-	height: 15px;
 	margin: 5px;
 	position: absolute;
 	z-index: 1;
 }
 
+	.toolbox-tab > img {
+		margin-right: 5px;
+		width: 15px;
+	}
+
+#tools-label {
+	margin-top: 1px;
+}
+
+.toolbox-tab > img, #tools-label {
+	vertical-align: middle;
+}
+
 .tool-wrapper {
 	border: 1px solid #007fff;
 	display: none;
-	padding: 5px 5px 5px 25px;
-}
-
-.icons {
-	width: 15px;
-}
-
-#tools-label {
-	padding: 1px;
+	padding: 20px 5px 5px 25px;
 }
 
 .tools {
 	padding: 1px 1px 1px 15px;
 }
 
-.pad, .toolbox {
+.pad, .toolbox, #tools-label {
 	display: inline-block;
 }
 
@@ -122,32 +129,16 @@ td {
 /*---------->>> EXTRAS <<<-----------*/
 /*-----------------------------------*/
 
-/*
-#eraser-button {
-	border: 1px solid black;
-	border-radius: 3px;
-	display: inline-block;
-	padding: 2px;
-}
 
-	#eraser-button > embed {
-		vertical-align: middle;
-		width: 15px;
-	}
-
-#clear-button {
-	width: 64px;
-}
-*/
 
 /*-----------------------------------*/
 /*---------->>> OTHER <<<------------*/
 /*-----------------------------------*/
 
-.drawnOn {
+.blackPencil {
 	background-color: black;
-	border-right: 1px solid black;
-	border-bottom: 1px solid black;
+	/* border-right: 1px solid black;
+	border-bottom: 1px solid black; */
 }
 
 .hoveredTool {
