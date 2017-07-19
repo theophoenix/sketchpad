@@ -1,13 +1,14 @@
-var gridSize = 16;
+var gridSize = 32;
 var toolboxVisible = false;
 var currentTool = '';
+var counter = 0; // Temporary
 
 function createSlider() {
 	var sliderHandle = $('#slider-handle');
 	$('#grid-slider').slider({
 		min: 1,
 		max: 64,
-		value: 16,
+		value: gridSize,
 		create: function() {
 			sliderHandle.text($(this).slider('value'));
 		},
@@ -15,9 +16,9 @@ function createSlider() {
 			sliderHandle.text(ui.value);
 			$('table').remove();
 			createGrid(ui.value);
-			selectTool('black-pencil');
 		}
 	});
+	console.log('Slider created.');
 };
 
 function createGrid(num) {
@@ -28,65 +29,25 @@ function createGrid(num) {
 	for (var x = 0; x < num; x++) {
 		$('tr').append('<td></td>');
 	};
+	console.log('Grid created.');
 };
 
 function selectTool(tool) {
 	$(currentTool).removeClass('selectedTool');
 	currentTool = '#' + tool;
 	$(currentTool).addClass('selectedTool');
-	switch (tool) {
-		case 'new-canvas':
-			clearGrid();
-			selectTool('black-pencil');
-			break;
-		case 'black-pencil':
-			draw('black');
-			break;
-		case 'eraser':
-			erase();
-			break;
-		case 'rainbow-pencil':
-			draw('rainbow');
-			break;
-	};
-};
-
-function clearGrid() {
-	$('td').removeClass();
-	$('td').removeAttr('style');
-};
-
-function draw(color) {
-	$('td').mouseenter(function() {
-		if (color == 'black') {
-			$(this).removeAttr('style');
-			$(this).addClass('blackPencil');
-		} else if (color == 'rainbow') {
-			$(this).removeClass();
-			$(this).css({
-				'background-color': randomRGB(),
-				// 'border-right': '1px solid red',
-				// 'border-bottom': '1px solid red'
-			});
-		};
-	});
+	console.log('Current tool: ' + currentTool);
 };
 
 function rng() {
 	var randomNum = Math.floor(Math.random() * 256); // Between 0 inclusive and 256 exclusive
+	// console.log('Random number generated.');
 	return randomNum;
 };
 
 function randomRGB() {
-	return('rgb(' + rng() + ', ' + rng() + ', ' + rng() + ')');
-};
-
-
-function erase() {
-	$('td').mouseenter(function() {
-		$(this).removeClass();
-		$(this).removeAttr('style');
-	});
+	console.log('Random colour generated.');
+	return 'rgb(' + rng() + ', ' + rng() + ', ' + rng() + ')';
 };
 
 /*-----------------------------------*/
@@ -105,10 +66,12 @@ $(document).ready(function() {
 			document.getElementById('arrow').setAttribute('src', 'images/arrow-down.png');
 			$('.tool-wrapper').show('fold');
 			toolboxVisible = true;
+			console.log('Tools shown.');
 		} else {
 			document.getElementById('arrow').setAttribute('src', 'images/arrow-right.png');
 			$('.tool-wrapper').hide('fold');
 			toolboxVisible = false;
+			console.log('Tools hidden.');
 		};
 	});
 
@@ -124,17 +87,40 @@ $(document).ready(function() {
 
 	$('#new-canvas').click(function() {
 		selectTool('new-canvas');
+		$('td').removeAttr('style');
+		console.log('Grid cleared.');
+		counter = 0;
+		selectTool('black-pencil');
 	});
 
 	$('#black-pencil').click(function() {
 		selectTool('black-pencil');
 	});
 
+	$('#rainbow-pencil').click(function() {
+		selectTool('rainbow-pencil');
+	});
+
 	$('#eraser').click(function() {
 		selectTool('eraser');
 	});
 
-	$('#rainbow-pencil').click(function() {
-		selectTool('rainbow-pencil');
+	$('td').mouseenter(function() {
+		switch (currentTool) {
+			case '#black-pencil':
+				$(this).css('background-color', 'rgb(0, 0, 0)');
+				console.log('Drawing with ' + currentTool);
+				break;
+			case '#rainbow-pencil':
+				$(this).css('background-color', randomRGB());
+				console.log('Drawing with ' + currentTool);
+				break;
+			case '#eraser':
+				$(this).removeAttr('style');
+				console.log('Style erased.');
+				break;
+		};
+		counter++; // Temporary
+		console.log(counter); // Temporary
 	});
 });
