@@ -142,3 +142,7 @@ td {
 .selectedTool {
 	background-color: rgba(0, 127, 255, 0.4);
 }
+
+.hasOpacity {
+	opacity: 0;
+}

@@ -57,7 +57,7 @@ function randomRGB() {
 $(document).ready(function() { 
 	createSlider();
 	createGrid(gridSize);
-	selectTool('black-pencil');
+	selectTool('gradient-pencil');
 
 	/* 'Toolbox' Behaviour */
 
@@ -86,11 +86,12 @@ $(document).ready(function() {
 		});
 
 	$('#new-canvas').click(function() {
-		selectTool('new-canvas');
+		// selectTool('new-canvas');
 		$('td').removeAttr('style');
+		$('td').removeAttr('class');
 		console.log('Grid cleared.');
-		counter = 0;
-		selectTool('black-pencil');
+		counter = 0; // Temporary
+		//selectTool('black-pencil');
 	});
 
 	$('#black-pencil').click(function() {
@@ -101,26 +102,42 @@ $(document).ready(function() {
 		selectTool('rainbow-pencil');
 	});
 
+	$('#gradient-pencil').click(function() {
+		selectTool('gradient-pencil');
+	});
+
 	$('#eraser').click(function() {
 		selectTool('eraser');
 	});
 
 	$('td').mouseenter(function() {
-		switch (currentTool) {
-			case '#black-pencil':
+		// This is messy.
+		if ($(this).attr('style')) {
+			if (currentTool == '#eraser') {
+				$(this).removeAttr('style');
+				$(this).removeAttr('class');
+				console.log('Style erased.');
+			};
+		} else {
+			if (currentTool == '#black-pencil') {
 				$(this).css('background-color', 'rgb(0, 0, 0)');
 				console.log('Drawing with ' + currentTool);
-				break;
-			case '#rainbow-pencil':
+				counter++; // Temporary
+				console.log(counter); // Temporary
+			} else if (currentTool == '#rainbow-pencil') {
 				$(this).css('background-color', randomRGB());
 				console.log('Drawing with ' + currentTool);
-				break;
-			case '#eraser':
-				$(this).removeAttr('style');
-				console.log('Style erased.');
-				break;
+				counter++; // Temporary
+				console.log(counter); // Temporary
+			};
 		};
-		counter++; // Temporary
-		console.log(counter); // Temporary
+
+		if (currentTool == '#gradient-pencil') {
+			$(this).addClass('hasOpacity');
+			$(this).css({'background-color': 'rgb(0, 0, 0)', 'opacity': ('+=0.1')});
+			console.log('Drawing with ' + currentTool);
+			counter++; // Temporary
+			console.log(counter); // Temporary
+		};
 	});
 });
